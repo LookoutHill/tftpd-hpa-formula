@@ -1,14 +1,14 @@
 .. _readme:
 
-TEMPLATE-formula
+tftpd-hpa-formula
 ================
 
 |img_travis| |img_sr| |img_pc|
 
-.. |img_travis| image:: https://travis-ci.com/saltstack-formulas/TEMPLATE-formula.svg?branch=master
+.. |img_travis| image:: https://travis-ci.com/saltstack-formulas/tftpd-hpa-formula.svg?branch=master
    :alt: Travis CI Build Status
    :scale: 100%
-   :target: https://travis-ci.com/saltstack-formulas/TEMPLATE-formula
+   :target: https://travis-ci.com/saltstack-formulas/tftpd-hpa-formula
 .. |img_sr| image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
    :alt: Semantic Release
    :scale: 100%
@@ -64,35 +64,7 @@ now ``pre-commit`` will run automatically on each ``git commit``. ::
 Special notes
 -------------
 
-.. <REMOVEME
-
-Using this template
-^^^^^^^^^^^^^^^^^^^
-
-The easiest way to use this template formula as a base for a new formula is to use GitHub's **Use this template** button to create a new repository. For consistency with the rest of the formula ecosystem, name your formula repository following the pattern ``<formula theme>-formula``, where ``<formula theme>`` consists of lower-case alphabetic characters, numbers, '-' or '_'.
-
-In the rest of this example we'll use ``example`` as the ``<formula theme>``.
-
-Follow these steps to complete the conversion from ``template-formula`` to ``example-formula``. ::
-
-  $ git clone git@github.com:YOUR-USERNAME/example-formula.git
-  $ cd example-formula/
-  $ bin/convert-formula.sh example
-  $ git push --force
-
-Alternatively, it's possible to clone ``template-formula`` into a new repository and perform the conversion there. For example::
-
-  $ git clone https://github.com/saltstack-formulas/template-formula example-formula
-  $ cd example-formula/
-  $ bin/convert-formula.sh example
-
-To take advantage of `semantic-release <https://github.com/semantic-release/semantic-release>`_ for automated changelog generation and release tagging, you will need a GitHub `Personal Access Token <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_ with at least the **public_repo** scope.
-
-In the Travis repository settings for your new repository, create an `environment variable <https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings>`_ named ``GH_TOKEN`` with the personal access token as value, restricted to the ``master`` branch for security.
-
-Note that this repository uses a `CODEOWNERS <https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners>`_ file to assign ownership to various parts of the formula. The conversion process removes overall ownership, but you should consider assigning ownership to yourself or your organisation when contributing your new formula to the ``saltstack-formulas`` organisation.
-
-.. REMOVEME>
+None
 
 Available states
 ----------------
@@ -100,79 +72,79 @@ Available states
 .. contents::
    :local:
 
-``TEMPLATE``
+``tftpd-hpa``
 ^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
-This installs the TEMPLATE package,
-manages the TEMPLATE configuration file and then
-starts the associated TEMPLATE service.
+This installs the tftpd-hpa package,
+manages the tftpd-hpa configuration file and then
+starts the associated tftpd-hpa service.
 
-``TEMPLATE.package``
+``tftpd-hpa.package``
 ^^^^^^^^^^^^^^^^^^^^
 
-This state will install the TEMPLATE package only.
+This state will install the tftpd-hpa package only.
 
-``TEMPLATE.config``
+``tftpd-hpa.config``
 ^^^^^^^^^^^^^^^^^^^
 
-This state will configure the TEMPLATE service and has a dependency on ``TEMPLATE.install``
+This state will configure the tftpd-hpa service and has a dependency on ``tftpd-hpa.install``
 via include list.
 
-``TEMPLATE.service``
+``tftpd-hpa.service``
 ^^^^^^^^^^^^^^^^^^^^
 
-This state will start the TEMPLATE service and has a dependency on ``TEMPLATE.config``
+This state will start the tftpd-hpa service and has a dependency on ``tftpd-hpa.config``
 via include list.
 
-``TEMPLATE.clean``
+``tftpd-hpa.clean``
 ^^^^^^^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
-this state will undo everything performed in the ``TEMPLATE`` meta-state in reverse order, i.e.
+this state will undo everything performed in the ``tftpd-hpa`` meta-state in reverse order, i.e.
 stops the service,
 removes the configuration file and
 then uninstalls the package.
 
-``TEMPLATE.service.clean``
+``tftpd-hpa.service.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will stop the TEMPLATE service and disable it at boot time.
+This state will stop the tftpd-hpa service and disable it at boot time.
 
-``TEMPLATE.config.clean``
+``tftpd-hpa.config.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the configuration of the TEMPLATE service and has a
-dependency on ``TEMPLATE.service.clean`` via include list.
+This state will remove the configuration of the tftpd-hpa service and has a
+dependency on ``tftpd-hpa.service.clean`` via include list.
 
-``TEMPLATE.package.clean``
+``tftpd-hpa.package.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the TEMPLATE package and has a depency on
-``TEMPLATE.config.clean`` via include list.
+This state will remove the tftpd-hpa package and has a depency on
+``tftpd-hpa.config.clean`` via include list.
 
-``TEMPLATE.subcomponent``
+``tftpd-hpa.subcomponent``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
 This state installs a subcomponent configuration file before
-configuring and starting the TEMPLATE service.
+configuring and starting the tftpd-hpa service.
 
-``TEMPLATE.subcomponent.config``
+``tftpd-hpa.subcomponent.config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will configure the TEMPLATE subcomponent and has a
-dependency on ``TEMPLATE.config`` via include list.
+This state will configure the tftpd-hpa subcomponent and has a
+dependency on ``tftpd-hpa.config`` via include list.
 
-``TEMPLATE.subcomponent.config.clean``
+``tftpd-hpa.subcomponent.config.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the configuration of the TEMPLATE subcomponent
-and reload the TEMPLATE service by a dependency on
-``TEMPLATE.service.running`` via include list and ``watch_in``
+This state will remove the configuration of the tftpd-hpa subcomponent
+and reload the tftpd-hpa service by a dependency on
+``tftpd-hpa.service.running`` via include list and ``watch_in``
 requisite.
 
 Testing
@@ -198,7 +170,7 @@ e.g. ``debian-9-2019-2-py3``.
 ``bin/kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Creates the docker instance and runs the ``TEMPLATE`` main state, ready for testing.
+Creates the docker instance and runs the ``tftpd-hpa`` main state, ready for testing.
 
 ``bin/kitchen verify``
 ^^^^^^^^^^^^^^^^^^^^^^

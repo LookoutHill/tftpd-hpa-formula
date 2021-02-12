@@ -194,7 +194,7 @@ provisioner:
   log_level: debug
   salt_install: none
   require_chef: false
-  formula: TEMPLATE
+  formula: tftpd-hpa
   salt_copy_filter:
     - .kitchen
     - .git
@@ -222,16 +222,16 @@ suites:
       state_top:
         base:
           '*':
-            - TEMPLATE._mapdata
-            - TEMPLATE
+            - tftpd-hpa._mapdata
+            - tftpd-hpa
       pillars:
         top.sls:
           base:
             '*':
-              - TEMPLATE
+              - tftpd-hpa
               - define_roles
       pillars_from_files:
-        TEMPLATE.sls: pillar.example
+        tftpd-hpa.sls: pillar.example
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
@@ -244,16 +244,16 @@ suites:
       state_top:
         base:
           '*':
-            - TEMPLATE._mapdata
-            - TEMPLATE
+            - tftpd-hpa._mapdata
+            - tftpd-hpa
       pillars:
         top.sls:
           base:
             '*':
-              - TEMPLATE
+              - tftpd-hpa
               - define_roles
       pillars_from_files:
-        TEMPLATE.sls: test/salt/pillar/upstart.sls
+        tftpd-hpa.sls: test/salt/pillar/upstart.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
@@ -270,17 +270,17 @@ suites:
       state_top:
         base:
           '*':
-            - TEMPLATE._mapdata
-            - TEMPLATE
+            - tftpd-hpa._mapdata
+            - tftpd-hpa
       pillars:
         top.sls:
           base:
             '*':
-              - TEMPLATE
+              - tftpd-hpa
               - gentoo
               - define_roles
       pillars_from_files:
-        TEMPLATE.sls: pillar.example
+        tftpd-hpa.sls: pillar.example
         gentoo.sls: test/salt/pillar/gentoo.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:

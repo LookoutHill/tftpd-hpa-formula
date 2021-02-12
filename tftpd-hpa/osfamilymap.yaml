@@ -12,25 +12,25 @@
 ---
 Debian:
   pkg:
-    name: TEMPLATE-debian
-  config: /etc/TEMPLATE.d/custom.conf
+    name: tftpd-hpa-debian
+  config: /etc/tftpd-hpa.d/custom.conf
 
 RedHat:
   pkg:
-    name: TEMPLATE-redhat
-  config: /etc/TEMPLATE.conf
+    name: tftpd-hpa-redhat
+  config: /etc/tftpd-hpa.conf
 
 Suse:
   pkg:
-    name: TEMPLATE-suse
+    name: tftpd-hpa-suse
 
 Gentoo:
   pkg:
-    name: TEMPLATE-gentoo
+    name: tftpd-hpa-gentoo
 
 Arch:
   pkg:
-    name: TEMPLATE-arch
+    name: tftpd-hpa-arch
   service:
     name: service-arch
 
